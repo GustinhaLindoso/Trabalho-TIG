@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial;
+    background-color: rgba(6, 17, 46, 0.76);
+    height: 90vh;
+}
+
+.header{
+    position: relative;
+    background-color: rgb(6, 17, 46);
+    color: aliceblue;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 10px;
+}
+
+.header2{
+    position: relative;
+    background-color: rgb(6, 17, 46);
+    color: aliceblue;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 15px;
+}
+
+/* The grid: Four equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 12.5%;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.row{
+    position: relative;
+    width: 100%;
+    top: 25px;
+    overflow: hidden;
+    background-color: rgb(6, 17, 46);
+}
+
+/* Style the images inside the grid */
+.column img {
+    opacity: 0.88; 
+    cursor: pointer; 
+}
+
+.column img:hover {
+    opacity: 1;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* The expanding image container */
+.container {
+    position: relative;
+    display: none;
+    width: 50%;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -20%);
+}
+
+/* Expanding image text */
+#imgtext {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    color: white;
+    font-size: 20px;
+}
+
+/* "X" para fechar a imagem com zoom */
+.closebtn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: white;
+    font-size: 35px;
+    cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+    <h2>Desenvolvimento de Sistemas</h2>
+
+</div>
+
+<div class="header2">
+    <p>Clique para ver imagens sobre DS:</p>
+</div>
+
+<!-- The four columns -->
+<div class="row">
+
+    <div class="column">
+        <img src="img/img1.png" alt="Linguagens" style="width:100%" onclick="myFunction(this);">
+    </div>
+
+    <div class="column">
+        <img src="img/img2.png" alt="Programando" style="width:100%" onclick="myFunction(this);">
+    </div>
+
+    <div class="column">
+        <img src="img/img3.png" alt="Codigos" style="width:100%" onclick="myFunction(this);">
+    </div>
+
+    <div class="column">
+        <img src="img/img4.png" alt="Aula sobre Programacao" style="width:100%" onclick="myFunction(this);">
+    </div>
+
+    <div class="column">
+        <img src="img/img5.png" alt="Astigmatismo" style="width:100%" onclick="myFunction(this);">
+    </div>
+
+    <div class="column">
+        <img src="img/img6.png" alt="Criando Banco de Dados" style="width:100%" onclick="myFunction(this);">
+    </div>
+
+    <div class="column">
+        <img src="img/img7.png" alt="Linguagens mais usadas" style="width:100%" onclick="myFunction(this);">
+    </div>
+
+    <div class="column">
+        <img src="img/img8.png" alt="Codando" style="width:100%" onclick="myFunction(this);">
+    </div>
+
+</div>
+
+<div class="container">
+  <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+  <img id="expandedImg" style="width:100%"> 
+  <div id="imgtext"></div>
+</div>
+
+<script>
+function myFunction(imgs) {
+  var expandImg = document.getElementById("expandedImg");
+  var imgText = document.getElementById("imgtext");
+  expandImg.src = imgs.src;
+  imgText.innerHTML = imgs.alt;
+  expandImg.parentElement.style.display = "block";
+}
+</script>
+
+</body>
+</html>
